@@ -1,0 +1,15 @@
+---
+- name: Download package
+  get_url:
+    url={{ vagrant_package_url }}
+    dest={{ vagrant_package_tmp }}
+    force=no
+    validate_certs=no
+  tags: package
+
+- name: Install package
+  become: true
+  apt:
+    deb={{ vagrant_package_tmp }}
+    state=installed
+  tags: package

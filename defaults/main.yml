@@ -1,0 +1,6 @@
+---
+vagrant_version: 2.1.1
+
+vagrant_architecture: "{{ 'x86_64' if ansible_architecture == 'x86_64' else 'i686' }}"
+vagrant_package_url: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_{{ vagrant_architecture }}.deb"
+vagrant_package_tmp: "/tmp/vagrant_{{ vagrant_version }}.deb"
